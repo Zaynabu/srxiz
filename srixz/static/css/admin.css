@@ -1,0 +1,81 @@
+#jazzy-navbar {
+    background-color: #508d4e !important;
+}
+
+a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link):not(.page-link):not(.btn){
+    color: #508d4e !important;
+}
+
+.nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #508d4e !important; /* New background color */
+    color: #fff; /* Ensure text is readable */
+}
+
+
+.btn-success,.btn-primary ,.navbar-dark{
+    background-color: #508d4e !important;
+    border: #508d4e;
+}
+
+ .btn-navbar, .navbar-dark .form-control-navbar {
+    background-color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    color: #508d4e !important;
+}
+
+.form-control-navbar::placeholder {
+    color: #508d4e !important; /* Replace with your desired color */
+    opacity: 1; /* Ensure the placeholder text is fully opaque */
+}
+
+.brand-text{
+    font-weight: bold !important ;
+    color: #ffffff !important ;
+    margin-left: 1rem;
+}
+
+.brand-link .brand-image {
+    display: none !important ;
+}
+
+.user-panel .image {
+    display: none !important ;
+}
+
+.user-panel .info {
+    font-weight: bold !important ;
+    margin-left: .5rem;
+
+}
+
+.login-logo{
+    display: none ;
+}
+
+.login-box-msg, .register-box-msg {
+    margin: 0;
+    padding: 0 20px 20px;
+    text-align: center;
+    font-weight: bold !important ;
+    font-size: 2.5rem;
+    color: #508d4e !important;
+}
+
+body {
+    
+    font-weight: 400;
+    
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal; }
+
+
+.alert-success{
+    color: #ffffff !important ; 
+    background-color: #352c15 !important ; 
+    border-color: #17161a !important ; 
+}
+
+.alert .close{
+    color: white !important;
+}

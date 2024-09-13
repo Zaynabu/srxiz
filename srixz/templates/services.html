@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<div class="site-section" data-aos="fade">
+  <div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-7">
+        <div class="row mb-5">
+          <div class="col-12 ">
+            <h2 class="site-section-heading text-center"> Services</h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <div class="row">
+      {% for data in service %}
+      <div class="col-md-6 col-lg-6 col-xl-3 text-center mb-5 mb-lg-5">
+        <div class="h-100   card site-block-feature-7 ">
+            <img src="media/{{data.image}}" class="card-img-top" alt="service image" style="height: 300px;object-fit: cover;">
+            <div class=" survice-card card-body">
+              <h5 class="card-title text-uppercase text-white font-weight-bold">{{data.title}}</h5>
+              <p class="card-text text-white service-description">{{data.description}}</p>
+              <p class="card-text text-white service-description"><a href="{% url 'contact' %}" class=" font-weight-bold btn btn-light " style="color:#508D4E;border-radius: 0.25rem;">CONTACT US </a></p>
+          </div>
+          
+        </div>
+      </div>
+    
+    {% endfor %}
+    </div> -->
+
+    <div class="row">
+      {% for data in service %}
+      <div class="col-lg-3 category" >
+          <div class="image-wrap-2">
+            <div class="image-info">
+            <h2 class="mb-3">{{data.title}}</h2>
+            <p class="mb-3 text-white description" style="display: none;">{{data.description}}</p>
+            <a href="{% url 'contact' %}" class="btn btn-outline-white py-2 px-4">CONTACT US</a>
+            </div> 
+          <img src="/media/{{data.image}}" alt="Image" class="img-fluid catimages serviceimg">
+        </div>
+      </a>
+      </div>
+      {% endfor %}
+      
+
+    </div>
+    
+</div>
+</div>
+
+
+<script>
+  $(document).ready(function() {
+            $('.category').hover(
+                function() {
+                    $(this).find('.description').stop(true, true).slideDown(); // Show the .description
+                },
+                function() {
+                    $(this).find('.description').stop(true, true).slideUp(); // Hide the .description
+                }
+            );
+        });
+</script>
+
+{% endblock %}
+
+
+{% with show_footer=True %}
+{% endwith %}

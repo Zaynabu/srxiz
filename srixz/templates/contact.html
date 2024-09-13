@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+<div class="site-section" data-aos="fade">
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-7">
+        <div class="row mb-5">
+          <div class="col-12 ">
+            <h2 class="site-section-heading text-center">Contact Us</h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mb-5">
+        <form action="enquiry" method="post">
+          {% csrf_token %}
+
+          <div class="row form-group">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label for="{{form.firstname.id_for_label}}">Firstname</label>
+              <input type="text" class="form-control" name="{{form.firstname.html_name}}" required
+                placeholder="eg : rahul">
+            </div>
+            <div class="col-md-6">
+              <label for="{{form.lastname.id_for_label}}">Lastname</label>
+              <input type="text" class="form-control" name="{{form.lastname.html_name}}" required
+                placeholder="eg : c v">
+            </div>
+          </div>
+
+          <div class="row form-group">
+
+            <div class="col-md-12">
+              <label for="{{form.email.id_for_label}}">Email</label>
+              <input type="email" class="form-control" name="{{form.email.html_name}}" required
+                placeholder="eg : abc@gmail.com">
+            </div>
+          </div>
+
+          <div class="row form-group">
+
+            <div class="col-md-12">
+              <label for="{{form.subject.id_for_label}}">Subject</label>
+              <input type="subject" class="form-control" name="{{form.subject.html_name}}"
+                placeholder="enter your subject here" required>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label for="{{form.message.id_for_label}}">Message</label>
+              <textarea name="{{form.message.html_name}}" cols="30" rows="7" class="form-control"
+                placeholder="Write your notes or questions here..." value="{{form.message.value}}" required></textarea>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Send Message" class="btn contactbtn py-2 px-4 text-white">
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+      <div class="col-lg-3 ml-auto">
+        <div class="mb-3">
+          {% for data in contact %}
+          <p class="mb-0 font-weight-bold ">Address</p>
+          <p class="mb-4">{{data.address}},{{data.place}},{{data.district}}-{{data.pincode}}</p>
+
+          <p class="mb-0 font-weight-bold ">Phone</p>
+          <p class="mb-4"><a href="tel:91{{data.mobile_1}}">+91 {{data.mobile_1}}</a></p>
+
+
+
+          <p class="mb-0 font-weight-bold ">Email Address</p>
+          <p class="mb-4"><a href="mailto:{{data.email}}">{{data.email}}</a></p>
+
+
+
+          <div class=" mt-4">
+            <p class="mb-0 font-weight-bold">Social media</p>
+
+            <ul class="site-menu  list-unstyled d-flex text-right mb-0 mt-2" data-class="social  contactsocial">
+              <li>
+                <a aria-label=""
+              href="https://wa.me/91{{data.mobile_1}}?text=Hello%2C%20I%20need%20assistance%20with%20your%20services." class="icon-whatsapp" target="_blank"></a>
+              </li>
+              <li>
+                {% if facebook_link %}
+                <a href="{{facebook_link}}" target="_blank" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                {% endif %}
+              </li>
+              <li>
+                {% if pintrest_link %}
+                <a href="{{pintrest_link}}" target="_blank" class="pl-3 pr-3"><span class="icon-pinterest"></span></a>
+                {% endif %}
+              </li>
+              <li>
+                {% if instagram_link %}
+                <a href="{{instagram_link}}" target="_blank" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                {% endif %}
+              </li>
+              <li>
+                {% if youtube_link %}
+                <a href="{{youtube_link}}" target="_blank" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% with show_footer=True %}
+{% endwith %}

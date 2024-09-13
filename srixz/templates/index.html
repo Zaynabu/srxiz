@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mb-3">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      {% for i in banner  %}
+      {% if forloop.counter == 1 %}
+      <div class="carousel-item active">
+      {% else %}
+      <div class="carousel-item">
+      {% endif %}
+        <img class="d-block w-100" src="/media/{{i.image}}" alt="banner image" style="height: 700px;object-fit: cover;" >
+      </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+</div>
+
+
+    <div class="container-fluid" data-aos="fade" data-aos-delay="500">
+      <div class="row justify-content-center mt-4">
+
+        <div class="col-md-7">
+          <div class="row mb-4">
+            <div class="col-12 ">
+              <h2 class="site-section-heading text-center"> Categories</h2>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+      <div class="row">
+        {% for data in category %}
+        <div class="col-lg-3 category" data={{data.id}}>
+          <a href="category_gallery/{{data.id}}">
+            <div class="image-wrap-2">
+              <div class="image-info">
+              <h2 class="mb-3">{{data.title}}</h2>
+              <a href="category_gallery/{{data.id}}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+              </div> 
+            <img src="/media/{{data.cover_image}}" alt="Image" class="img-fluid catimages">
+          </div>
+        </a>
+        </div>
+        {% endfor %}
+        
+
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        $('.category').click(function(){
+          let id= $(this).attr('data');
+          console.log(id);
+          window.location.href='category_gallery/'+id;
+        })
+      })
+    </script>
+
+{% endblock  %}
+
+{% with show_footer=True %}
+{% endwith %}
+
+    

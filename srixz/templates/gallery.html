@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+    <div class="site-section"  data-aos="fade">
+      <div class="container-fluid">
+
+        <div class="row justify-content-center">
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center">Gallery  </h2>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row" id="lightgallery">
+          {% for data in gallery  %}
+          
+          <div class="col-lg-3 item" data-aos="fade" data-src="/media/{{data.image}}" data-sub-html="<h4>{{data.title}}</h4><p>{{data.description}}</p>">
+            <div class="image-wrap-2">
+              <a href="#"><img src="/media/{{data.image}}" alt="{{data.title}}" class="img-fluid catimages"></a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% endblock  %}
+
+
+    {% with show_footer=True %}
+    {% endwith %}
